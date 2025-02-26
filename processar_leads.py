@@ -71,9 +71,6 @@ def processar_arquivos(pasta_resultados, arquivo_base):
     duplicatas_antes = df_final[df_final.duplicated(subset=['TELEFONE'], keep=False)]
     print(f"Total de telefones duplicados antes da remoção: {len(duplicatas_antes)}")
 
-# Listar os primeiros telefones duplicados
-    print(duplicatas_antes.head(20))
-
 # Normalizar espaços e caracteres estranhos antes da remoção
     df_final['TELEFONE'] = df_final['TELEFONE'].astype(str).str.strip()  # Remove espaços extras
     df_final['TELEFONE'] = df_final['TELEFONE'].str.replace(r'\D', '', regex=True)  # Remove traços, parênteses e espaços
